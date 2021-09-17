@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,68 +20,14 @@
         background-position-y: 6%;
       }
 
-      /* .checked {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 12px;
-        left: 12px;
-        border: 1px solid rgba(128, 128, 128, 0.075);
-        border-radius: 50%;
-        background-color: transparent;
-      }
-
-      .checked:hover {
-        background-color: rgba(206, 206, 206, 0.199);
-      } */
-
-      /* li input {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        cursor: pointer;
+      img.close {
         opacity: 0;
-        cursor: pointer;
-        height: 20px;
-        width: 20px;
-        z-index: 3;
-        /* text-decoration: ; */
-      /* }  */
-
-      /* .checkmark {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 12px;
-        left: 12px;
-        border: 1px solid rgba(128, 128, 128, 0.075);
-        border-radius: 50%;
-        background-color: transparent;
       }
 
-      li:hover input ~ .checkmark {
-        background-color: rgba(206, 206, 206, 0.199);
+      li:hover ~ img.close,
+      .text:hover ~ img.close {
+        opacity: 1;
       }
-
-      li input:checked ~ .checkmark {
-        background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-        border: none;
-      }
-
-      .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }
-
-      input:checked ~ .checkmark:after {
-        display: block;
-      }
-
-      li .checkmark:after {
-        background-image: url(./src/images/icon-check.svg);
-      } */
 
       .attribution {
         font-size: 11px;
@@ -92,30 +38,29 @@
       }
     </style>
   </head>
-  <body class="bg-lightTheme-200 font-body overflow-hidden w-screen font-normal">
+  <body class="dark:bg-darkTheme-100 bg-lightTheme-200 font-body overflow-hidden w-screen font-normal">
     <div class="container mx-auto relative">
       <header class="flex justify-between mt-20 uppercase">
         <h3 class="text-5xl text-white font-bold tracking-widessst">Todo</h3>
-        <button class="p-2 w-10">
-          <img src="./src/images/icon-moon.svg" class="w-full" />
+        <button id="mode-btn" class="p-2 w-10">
+          <img src="./src/images/icon-sun.svg" class="w-full" />
         </button>
       </header>
-      <main class="text-lightTheme-500 absolute top-20 left-0 right-0 l">
+      <main class="dark:text-darkTheme-300 text-lightTheme-500 absolute top-20 left-0 right-0 l">
         <!-- input -->
-        <input type="text" placeholder="Create a new tooo..." id="myInput" class="p-4 mb-6 rounded bg-lightTheme-100 w-full text-lightTheme-400" />
+        <input type="text" placeholder="Create a new tooo..." id="myInput" class="dark:bg-darkTheme-200 dark:text-darkTheme-300 bg-lightTheme-100 text-lightTheme-400 p-4 mb-6 rounded w-full" />
         <!--  -->
-        <section class="bg-lightTheme-100 rounded shadow-x">
-          <ul class="todo-list">
-            ...
-          </ul>
+        <section class="dark:bg-darkTheme-200 bg-lightTheme-100 rounded shadow-x">
+          <ul class="todo-list"></ul>
           <div class="info p-3 pl-3 flex justify-between text-lightTheme-400">
-            <span>5 items left</span>
+            <span id="item-length" class="hover:text-darkTheme-400"></span>
+
             <ul class="flex justify-between w-40">
-              <li class="hover:text-primary-100">All</li>
-              <li class="hover:text-primary-100">Active</li>
-              <li class="hover:text-primary-100">Completed</li>
+              <li id="all-btn" class="hover:text-primary-100 cursor-pointer">All</li>
+              <li id="active-btn" class="hover:text-primary-100 cursor-pointer">Active</li>
+              <li id="complt-btn" class="hover:text-primary-100 cursor-pointer">Completed</li>
             </ul>
-            <span>Clear Completed</span>
+            <span id="clear-btn" class="hover:text-darkTheme-400">Clear Completed</span>
           </div>
         </section>
       </main>
@@ -134,3 +79,5 @@
             <li class="p-3 pl-12 border-b-2 relative"><input type="checkbox" name="todo2" value="todo" /><span class="checkmark"></span><label for="todo2">todo 2</label></li>
             <li class="p-3 pl-12 border-b-2 relative"><input type="checkbox" name="todo3" value="todo" /><span class="checkmark"></span> <label for="todo3">todo 3</label></li>
             <li class="p-3 pl-12 border-b-2 relative"><input type="checkbox" name="todo4" value="todo" /><span class="checkmark"></span> <label for="todo4">todo 4</label></li> -->
+
+<!-- <span id="item-length">5 items left</span> -->
