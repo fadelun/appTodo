@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,9 +24,10 @@
         opacity: 0;
       }
 
-      li:hover ~ img.close,
-      .text:hover ~ img.close {
+      .text:hover ~ img.close,
+      img.close:hover {
         opacity: 1;
+        transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
       }
 
       .attribution {
@@ -40,27 +41,28 @@
   </head>
   <body class="dark:bg-darkTheme-100 bg-lightTheme-200 font-body overflow-hidden w-screen font-normal">
     <div class="container mx-auto relative">
-      <header class="flex justify-between mt-20 uppercase">
+      <header class="flex md:justify-around justify-between mt-20 uppercase mx-5">
         <h3 class="text-5xl text-white font-bold tracking-widessst">Todo</h3>
         <button id="mode-btn" class="p-2 w-10">
-          <img src="./src/images/icon-sun.svg" class="w-full" />
+          <img src="./src/images/icon-moon.svg" class="w-full" />
         </button>
       </header>
-      <main class="dark:text-darkTheme-300 text-lightTheme-500 absolute top-20 left-0 right-0 l">
+      <main class="dark:text-darkTheme-300 text-lightTheme-500 absolute top-20 left-4 right-4 md:left-20 md:right-20 xl:left-44 xl:right-44">
         <!-- input -->
         <input type="text" placeholder="Create a new tooo..." id="myInput" class="dark:bg-darkTheme-200 dark:text-darkTheme-300 bg-lightTheme-100 text-lightTheme-400 p-4 mb-6 rounded w-full" />
         <!--  -->
         <section class="dark:bg-darkTheme-200 bg-lightTheme-100 rounded shadow-x">
           <ul class="todo-list"></ul>
           <div class="info p-3 pl-3 flex justify-between text-lightTheme-400">
-            <span id="item-length" class="hover:text-darkTheme-400"></span>
-
-            <ul class="flex justify-between w-40">
-              <li id="all-btn" class="hover:text-primary-100 cursor-pointer">All</li>
-              <li id="active-btn" class="hover:text-primary-100 cursor-pointer">Active</li>
-              <li id="complt-btn" class="hover:text-primary-100 cursor-pointer">Completed</li>
+            <span id="item-length" class="hover:text-darkTheme-400"> 0 items length </span>
+            <!-- media querry -->
+            <ul class="md:flex md:justify-between md:w-48 md:p-0 md:static dark:bg-darkTheme-200 bg-lightTheme-100 rounded p-3 flex justify-center w-full shadow-x absolute -bottom-20 left-0 right-0">
+              <li id="all-btn" class="hover:text-primary-100 cursor-pointer mx-2">All</li>
+              <li id="active-btn" class="hover:text-primary-100 cursor-pointer mx-2">Active</li>
+              <li id="complt-btn" class="hover:text-primary-100 cursor-pointer mx-2">Completed</li>
             </ul>
-            <span id="clear-btn" class="hover:text-darkTheme-400">Clear Completed</span>
+            <!--  -->
+            <span id="clear-btn" class="hover:text-darkTheme-400 cursor-pointer">Clear Completed</span>
           </div>
         </section>
       </main>
@@ -70,14 +72,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-<!-- <li class="p-3 pl-12 border-b-2 relative">
-              <input type="checkbox" name="todo1" value="todo" />
-              <span class="checkmark"></span>
-              <label for="todo1">todo 1</label>
-            </li>
-            <li class="p-3 pl-12 border-b-2 relative"><input type="checkbox" name="todo2" value="todo" /><span class="checkmark"></span><label for="todo2">todo 2</label></li>
-            <li class="p-3 pl-12 border-b-2 relative"><input type="checkbox" name="todo3" value="todo" /><span class="checkmark"></span> <label for="todo3">todo 3</label></li>
-            <li class="p-3 pl-12 border-b-2 relative"><input type="checkbox" name="todo4" value="todo" /><span class="checkmark"></span> <label for="todo4">todo 4</label></li> -->
-
-<!-- <span id="item-length">5 items left</span> -->
