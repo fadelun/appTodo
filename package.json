@@ -4,13 +4,15 @@
   "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss build ./src/css/style.css -o ./tailwind.css"
+    "dev": "tailwindcss build ./src/style.css -o ./tailwind.css",
+    "prod": "NODE_ENV=production tailwindcss build ./src/style.css -o ./tailwind.css"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.3.4",
     "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.2.15"
   }
 }
