@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../src/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="tailwind.css" />
+
+    <title>Frontend Mentor | Todo app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        background-image: url(../src/images/bg-desktop-light.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 6%;
+      }
+
+      img.close {
+        opacity: 0;
+      }
+
+      .text:hover ~ img.close,
+      img.close:hover {
+        opacity: 1;
+        transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body
+    class="dark:bg-darkTheme-100 bg-lightTheme-200 font-body overflow-hidden w-screen font-normal"
+  >
+    <div class="container mx-auto relative">
+      <header
+        class="flex md:justify-around justify-between mt-20 uppercase mx-5"
+      >
+        <h3 class="text-5xl text-white font-bold tracking-widessst">Todo</h3>
+        <button id="mode-btn" class="p-2 w-10">
+          <img src="../src/images/icon-moon.svg" class="w-full" />
+        </button>
+      </header>
+      <main
+        class="dark:text-darkTheme-300 text-lightTheme-500 absolute top-20 left-4 right-4 md:left-20 md:right-20 xl:left-44 xl:right-44"
+      >
+        <!-- input -->
+        <input
+          type="text"
+          placeholder="Create a new tooo..."
+          id="myInput"
+          class="dark:bg-darkTheme-200 dark:text-darkTheme-300 bg-lightTheme-100 text-lightTheme-400 p-4 mb-6 rounded w-full"
+        />
+        <!--  -->
+        <section
+          class="dark:bg-darkTheme-200 bg-lightTheme-100 rounded shadow-x"
+        >
+          <ul class="todo-list"></ul>
+          <div class="info p-3 pl-3 flex justify-between text-lightTheme-400">
+            <span id="item-length" class="hover:text-darkTheme-400">
+              0 items length
+            </span>
+            <!-- media querry -->
+            <ul
+              class="md:flex md:justify-between md:w-48 md:p-0 md:static dark:bg-darkTheme-200 bg-lightTheme-100 rounded p-3 flex justify-center w-full shadow-x absolute -bottom-20 left-0 right-0"
+            >
+              <li
+                id="all-btn"
+                class="hover:text-primary-100 cursor-pointer mx-2"
+              >
+                All
+              </li>
+              <li
+                id="active-btn"
+                class="hover:text-primary-100 cursor-pointer mx-2"
+              >
+                Active
+              </li>
+              <li
+                id="complt-btn"
+                class="hover:text-primary-100 cursor-pointer mx-2"
+              >
+                Completed
+              </li>
+            </ul>
+            <!--  -->
+            <span id="clear-btn" class="hover:text-darkTheme-400 cursor-pointer"
+              >Clear Completed</span
+            >
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="attribution hidden">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
