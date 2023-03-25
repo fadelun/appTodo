@@ -6,16 +6,23 @@ const button = document.getElementById("mode-btn");
 
 let array = ["workout", "sarapan", "kuliah"];
 
+const listTemplate = (item, index) => {
+  return `<li class="group dark:border-darkTheme-700 px-4 h-10 border-b-2 flex items-center relative ">
+          <div class="check-border p-1 text-align bg-transparent mr-2 w-5 h-5 rounded-full border-2 border-lightTheme-400">
+          <img src="../src/images/icon-check.svg" class="checked opacity-0" />
+          </div>                
+        <span class="text text-${index + 1} cursor-pointer w-full">${item}</span>
+        <div class="close-button opacity-0 cursor-pointer group-hover:opacity-100 ease-out duration-500 w-5 h-5 absolute top-3 right-4">
+        <img src="../src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-full "/>
+        </div>
+        </li>`
+}
+
 const checkArray = () => {
   if (array.length > 0) {
     array.map((item, index) => {
-      const newItem = `<li class="dark:border-darkTheme-700 px-4 h-10 border-b-2 flex items-center relative">
-                          <div class="check-border p-1 text-align bg-transparent mr-2 w-5 h-5 rounded-full border-2 border-lightTheme-400">
-                          <img src="../src/images/icon-check.svg" class="checked opacity-0" />
-                          </div>                
-                      <span class="text text-${index + 1} cursor-pointer w-full">${item}</span>
-                      <img src="../src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-4 h-4 absolute top-3 right-2"/>
-                  </li>`;
+      const newItem = listTemplate(item, index)
+        ;
 
       todoList.innerHTML += newItem;
       totalItems.innerHTML = `${array.length} items length`;
@@ -53,18 +60,11 @@ const inputText = (event) => {
 
 
   if (event.key == "Enter") {
-    // console.log(array == undefined)
-    // console.log(todoList)
 
     array.push(inputTxt.value);
 
-    const newItem = `<li class="dark:border-darkTheme-700 px-4 h-10 border-b-2 flex items-center relative">
-                          <div class="check-border p-1 text-align bg-transparent mr-2 w-5 h-5 rounded-full border-2 border-lightTheme-400">
-                          <img src="../src/images/icon-check.svg" class="checked opacity-0" />
-                          </div>                
-                      <span class="text text-${array.length + 1} cursor-pointer w-full">${inputTxt.value}</span>
-                      <img src="../src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-4 h-4 absolute top-3 right-2"/>
-                  </li>`;
+    const newItem = listTemplate(inputTxt.value, array.length)
+
 
     todoList.innerHTML += newItem;
     totalItems.innerHTML = `${array.length} items length`;
@@ -77,7 +77,7 @@ const inputText = (event) => {
       let item = allItems[i];
       let text = item.querySelector(".text");
       let check = item.querySelector(".check-border");
-      let close = item.querySelector(".close");
+      let close = item.querySelector(".close-button");
 
       item.addEventListener("click", (event) => {
         //check button
@@ -95,13 +95,17 @@ const inputText = (event) => {
         }
 
         // close button
-        if (event.target == close) {
+        close.addEventListener('click', () => {
+
+          console.log(event.target)
           if (!text.classList.contains("line-through")) {
             item.remove();
             totalItems.innerHTML = `${(array.length -= 1)} items length`;
           }
-        }
-      });
+
+        });
+
+      })
     }
   }
   let total = todoList.children;
