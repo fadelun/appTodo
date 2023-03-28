@@ -4,7 +4,7 @@
   "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss build ./src/style.css -o ./tailwind.css",
+    "dev": "tailwindcss build ./src/input.css -o ./public/tailwind.css",
     "prod": "NODE_ENV=production tailwindcss build ./src/style.css -o ./tailwind.css"
   },
   "author": "",
