@@ -1,7 +1,7 @@
 {
   "name": "todoapp",
   "version": "1.0.0",
-  "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
+  "description": "![Design preview for the Todo app coding challenge](./src/design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
     "dev": "tailwindcss build ./src/input.css -o ./public/tailwind.css",

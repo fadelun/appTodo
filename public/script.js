@@ -23,21 +23,21 @@ const listTemplate = ({ name, check }, id) => {
   if (check) {
     return `<li   class="todo-item group dark:border-darkTheme-700 px-4 h-10 border-b-2 flex items-center relative ">
               <button onclick={checked(event)}   class="check-border bg-check border-transparent  p-1 text-align bg-transparent mr-2 w-5 h-5 rounded-full border-2 border-lightTheme-400">
-              <img src="../src/images/icon-check.svg" class="checked " />
+              <img src="./src/images/icon-check.svg" class="checked " />
               </button>                
             <span onclick={checked(event)}  class="text text-lightTheme-300 line-through text-${id} cursor-pointer w-full ">${name}</span>
             <button onclick={deleteItem(${id})} class="close-button opacity-0 cursor-pointer group-hover:opacity-100 ease-out duration-500 w-5 h-5 absolute top-3 right-4">
-            <img src="../src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-full "/>
+            <img src="./src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-full "/>
             </button>
             </li>`
   }
   return `<li   class="todo-item group dark:border-darkTheme-700 px-4 h-10 border-b-2 flex items-center relative ">
           <button onclick={checked(event)}   class="check-border p-1 text-align bg-transparent mr-2 w-5 h-5 rounded-full border-2 border-lightTheme-400">
-          <img src="../src/images/icon-check.svg" class="checked opacity-0" />
+          <img src="./src/images/icon-check.svg" class="checked opacity-0" />
           </button>                
         <span onclick={checked(event)}  class="text text-${id} cursor-pointer w-full">${name}</span>
         <button onclick={deleteItem(${id})} class="close-button opacity-0 cursor-pointer group-hover:opacity-100 ease-out duration-500 w-5 h-5 absolute top-3 right-4">
-        <img src="../src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-full "/>
+        <img src="./src/images/icon-cross.svg" class="close ml-2 border-lightTheme-400 w-full "/>
         </button>
         </li>`
 }
@@ -122,14 +122,16 @@ clearComplt.addEventListener('click', () => {
 
 // change mode
 const changeMode = () => {
-  const imgSource = ["../src/images/icon-moon.svg", "../src/images/icon-sun.svg"];
+  const imgSource = ["./src/images/icon-moon.svg", "./src/images/icon-sun.svg"];
+  const bgMobile = ["url(./src/images/bg-mobile-light.jpg)", "url(./src/images/bg-mobile-dark.jpg)"];  // background image ketika ukuran mobile
+  const bgDesktop = ["url(./src/images/bg-desktop-light.jpg)", "url(./src/images/bg-desktop-dark.jpg)"]  // background image ketika ukuran dekstop
 
   if (document.documentElement.classList.contains("dark")) {
     modeButton.firstElementChild.src = imgSource[0];
-    body.style.backgroundImage = window.innerWidth < 640 ? "url(../src/images/bg-mobile-light.jpg)" : "url(../src/images/bg-desktop-light.jpg)";
+    body.style.backgroundImage = window.innerWidth < 640 ? bgMobile[0] : bgDesktop[0];
   } else {
     modeButton.firstElementChild.src = imgSource[1];
-    body.style.backgroundImage = window.innerWidth < 640 ? "url(../src/images/bg-mobile-dark.jpg)" : "url(../src/images/bg-desktop-dark.jpg)";
+    body.style.backgroundImage = window.innerWidth < 640 ? bgMobile[1] : bgDesktop[1];
   }
 
   document.documentElement.classList.toggle("dark");
